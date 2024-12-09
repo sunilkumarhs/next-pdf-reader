@@ -4,7 +4,7 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import { useRouter, useSearchParams } from "next/navigation";
 import { trpc } from "../_trpc/client";
-import { LoaderPinwheel } from "lucide-react";
+import { LuLoaderPinwheel } from "react-icons/lu";
 import { useEffect } from "react";
 
 const Page = () => {
@@ -13,7 +13,7 @@ const Page = () => {
   const origin = searchParams.get("origin");
   const { data, isError, error } = trpc.authCallback.useQuery(undefined, {
     retry: true,
-    retryDelay: 50000,
+    retryDelay: 500,
   });
   useEffect(() => {
     if (data) {
@@ -26,7 +26,7 @@ const Page = () => {
   useEffect(() => {
     if (isError) {
       if (error.data?.code === "UNAUTHORIZED") {
-        router.push("/sign-in");
+        router.push("/");
       }
     }
   }, [isError]);
@@ -34,7 +34,7 @@ const Page = () => {
   return (
     <div className="w-full mt-24 flex justify-center">
       <div className="flex flex-col items-center gap-2">
-        <LoaderPinwheel className="h-10 w-10 animate-spin text-zinc-800" />
+        <LuLoaderPinwheel className="h-10 w-10 animate-spin text-zinc-800" />
         <h3 className="font-bold text-stone-800 text-xl">
           Setting up your account.....
         </h3>

@@ -6,7 +6,8 @@ import Image from "next/image";
 
 import Skeleton from "react-loading-skeleton";
 import Link from "next/link";
-import { LoaderPinwheel, MessageSquare, Plus, Trash2 } from "lucide-react";
+import { LuLoaderPinwheel, LuBotMessageSquare } from "react-icons/lu";
+import { FaPlus, FaTrash } from "react-icons/fa";
 import { format } from "date-fns";
 import { Button } from "./ui/button";
 import { useState } from "react";
@@ -69,11 +70,11 @@ const Dashboard = () => {
 
                 <div className="px-6 mt-4 grid grid-cols-3 place-items-center py-2 text-xs gap-6 text-stone-500">
                   <div className="flex items-center gap-2">
-                    <Plus className="h-4 w-4" />
+                    <FaPlus className="h-4 w-4" />
                     {format(new Date(file.createdAt), "dd MMM yyyy")}
                   </div>
                   <div className="flex items-center gap-2">
-                    <MessageSquare className="h-4 w-4" />
+                    <LuBotMessageSquare className="h-5 w-5" />
                     mocked
                   </div>
                   <Button
@@ -83,9 +84,9 @@ const Dashboard = () => {
                     onClick={() => deleteFile({ id: file.id })}
                   >
                     {currentlyDeletingFile === file.id ? (
-                      <LoaderPinwheel className="h-5 w-5 animate-spin" />
+                      <LuLoaderPinwheel className="h-5 w-5 animate-spin" />
                     ) : (
-                      <Trash2 className="h-5 w-5" />
+                      <FaTrash className="h-5 w-5" />
                     )}
                   </Button>
                 </div>

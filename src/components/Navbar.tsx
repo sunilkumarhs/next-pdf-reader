@@ -5,7 +5,7 @@ import {
   LoginLink,
   RegisterLink,
 } from "@kinde-oss/kinde-auth-nextjs/components";
-import { ArrowRight } from "lucide-react";
+import { TiArrowRight } from "react-icons/ti";
 
 const Navbar = () => {
   return (
@@ -14,7 +14,7 @@ const Navbar = () => {
         {" "}
         <div className="flex h-14 items-center justify-between border-b border-zinc-200">
           <Link href="/" className="flex z-40 font-semibold">
-            <span>PDF-Reader</span>
+            <span>ChatterBox-PDF</span>
           </Link>
           {/* mobile nav bar */}
           <div className="hidden items-center space-x-4 sm:flex">
@@ -41,7 +41,7 @@ const Navbar = () => {
                   size: "sm",
                 })}
               >
-                Get Started <ArrowRight className="ml-2 h-5 w-5" />
+                Get Started <TiArrowRight className="text-xl" />
               </RegisterLink>
             </>
           </div>

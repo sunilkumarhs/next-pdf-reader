@@ -6,6 +6,8 @@ import Navbar from "@/components/Navbar";
 import Providers from "@/components/Providers";
 
 import "react-loading-skeleton/dist/skeleton.css";
+import "simplebar-react/dist/simplebar.min.css";
+import { Toaster } from "@/components/ui/toaster";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -37,6 +39,7 @@ export default function RootLayout({
             `${geistSans.variable} ${geistMono.variable} antialiased`
           )}
         >
+          <Toaster />
           <Navbar />
           {children}
         </body>

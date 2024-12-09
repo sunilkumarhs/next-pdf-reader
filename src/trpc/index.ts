@@ -37,6 +37,38 @@ export const appRouter = router({
       },
     });
   }),
+  getFile: privateProcedure
+    .input(z.object({ key: z.string() }))
+    .mutation(async ({ ctx, input }) => {
+      const { userId } = ctx;
+
+      const file = await db.file.findFirst({
+        where: {
+          key: input.key,
+          userId,
+        },
+      });
+
+      if (!file) throw new TRPCError({ code: "NOT_FOUND" });
+
+      return file;
+    }),
+  addFile: privateProcedure
+    .input(z.object({ key: z.string(), name: z.string(), url: z.string() }))
+    .mutation(async ({ ctx, input }) => {
+      const { userId } = ctx;
+      const file = await db.file.create({
+        data: {
+          key: input.key,
+          name: input.name,
+          userId: userId,
+          url: input.url,
+          uploadStatus: "PROCESSING",
+        },
+      });
+      if (!file) throw new TRPCError({ code: "INTERNAL_SERVER_ERROR" });
+      return file;
+    }),
   deleteFile: privateProcedure
     .input(z.object({ id: z.string() }))
     .mutation(async ({ ctx, input }) => {

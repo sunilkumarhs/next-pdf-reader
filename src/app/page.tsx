@@ -1,7 +1,7 @@
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 import { buttonVariants } from "@/components/ui/button";
 import { steps } from "@/utils/constants";
-import { ArrowRight } from "lucide-react";
+import { TiArrowRight } from "react-icons/ti";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -12,7 +12,7 @@ const Home = () => {
         <div className="mx-auto mb-4 flex max-w-fit items-center justify-center space-x-2 overflow-hidden rounded-full border border-stone-200 bg-white px-7 py-2 shadow-md backdrop-blur transition-all hover:border-stone-300 hover:bg-white/50">
           <p className="text-sm font-semibold text-stone-700">
             {" "}
-            PDF-Reader is Public!!
+            ChatterBox-PDF is Public!!
           </p>
         </div>
         <h1 className="max-w-4xl text-5xl font-bold md:text-6xl lg:text-7xl">
@@ -31,7 +31,7 @@ const Home = () => {
           href={"/dashboard"}
           target="_blank"
         >
-          Get Started <ArrowRight className="ml-2 h-5 w-5" />
+          Get Started <TiArrowRight className="h-7 w-7" />
         </Link>
       </MaxWidthWrapper>
       <div>
